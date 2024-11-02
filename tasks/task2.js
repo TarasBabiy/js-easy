@@ -1,22 +1,29 @@
 // Задача: Написати функцію, яка приймає рядок і повертає його у зворотному порядку,
 //  при цьому пропускаючи всі цифри.
 
-function reverseWithoutNumbers(str) {
-	// Масив для збереження символів, які не є цифрами
-	const chars = [];
-	
-	for (let char of str) {
-	  // Перевіряємо, чи символ не є цифрою
-	  if (!(char >= '0' && char <= '9')) {
-		chars.push(char);
+function reverseStringWithoutDigits(str) {
+	let filteredStr = '';
+	for (let i = 0; i < str.length; i++) {
+	  if (isNaN(str[i]) || str[i] === ' ') {
+		filteredStr += str[i];
 	  }
 	}
-	
-	// Зворотній порядок для масиву з символами і повернення рядка
-	return chars.reverse().join('');
+	let reversedStr = '';
+	for (let i = filteredStr.length - 1; i >= 0; i--) {
+	  reversedStr += filteredStr[i];
+	}
+	return reversedStr;
   }
-
-console.log(reverseWithoutNumbers("hello123world456")); // Виведе: "dlrowolleh"
-console.log(reverseWithoutNumbers("abc123xyz"));       // Виведе: "zyxabc"
-
-module.exports = reverseWithoutNumbers;
+  let input = "abc123def456";
+  let result = reverseStringWithoutDigits(input);
+  console.log(result);
+  
+  console.log(reverseStringWithoutDigits("hello5world"));
+  console.log(reverseStringWithoutDigits("abc123xyz"));
+  console.log(reverseStringWithoutDigits("123"));
+  console.log(reverseStringWithoutDigits(""));
+  console.log(reverseStringWithoutDigits("abcdef"));
+  console.log(reverseStringWithoutDigits("hello"));
+  console.log(reverseStringWithoutDigits("1234567890"));
+  
+  module.exports = reverseStringWithoutDigits;

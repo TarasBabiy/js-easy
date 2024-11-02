@@ -3,20 +3,20 @@
 
 
 function countOccurrences(str, char) {
-	let count = 0; // Ініціалізуємо лічильник
+	let count = 0;
   
 	for (let i = 0; i < str.length; i++) {
-	  // Якщо поточний символ дорівнює char, збільшуємо лічильник
 	  if (str[i] === char) {
 		count++;
 	  }
 	}
-	
-	return count; // Повертаємо кількість входжень
+  
+	return count;
   }
-
-// Приклади використання:
-console.log(countOccurrences("hello world", 'o')); // Виведе: 2
-console.log(countOccurrences("banana", 'a'));       // Виведе: 3
-
-module.exports = countOccurrences;
+  
+  console.log(countOccurrences("hello world", 'o')); 
+  console.log(countOccurrences("banana", 'a'));      
+  console.log(countOccurrences("example", 'x'));
+  console.log(countOccurrences("hello", 'z'));
+  
+  module.exports = countOccurrences;

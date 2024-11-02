@@ -2,24 +2,26 @@
 // на певний символ, наприклад *.
 
 function replaceVowels(str) {
-	// Створюємо масив з голосними
-	const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
-	// Створюємо порожній рядок для збереження результату
-	let result = '';
-	
-	for (let char of str) {
-	  // Якщо символ є голосною, додаємо '*' до результату, інакше додаємо сам символ
-	  if (vowels.includes(char)) {
-		result += '*';
-	  } else {
-		result += char;
-	  }
-	}
-	
-	return result;
+  const vowels = "aeiouAEIOU"; 
+  let result = ""; 
+
+  for (let i = 0; i < str.length; i++) { // Додані фігурні дужки
+    if (vowels.includes(str[i])) { 
+      result += "*"; 
+    } else {
+      result += str[i]; 
+    }
   }
 
-console.log(replaceVowels("hello world")); // Виведе: "h*ll* w*rld"
-console.log(replaceVowels("Javascript"));  // Виведе: "J*v*scr*pt"
+  return result; 
+}
+
+console.log(replaceVowels("hello")); 
+console.log(replaceVowels("javascript"));  
+console.log(replaceVowels("aeiou"));
+console.log(replaceVowels(""));
+console.log(replaceVowels("bcdfgh"));
+console.log(replaceVowels("HELLO"));
+console.log(replaceVowels("JavaScript"));
 
 module.exports = replaceVowels;
